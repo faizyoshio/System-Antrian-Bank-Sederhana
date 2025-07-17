@@ -7,8 +7,8 @@ Aplikasi ini adalah sistem manajemen antrian bank berbasis desktop yang dirancan
 Berikut adalah tampilan antarmuka utama aplikasi:
 
 ![Tampilan Antarmuka Utama Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420140388094105/Screenshot_378.png?ex=687a61c7&is=68791047&hm=26394b50e3556ea5657e39e7a3da36d78f2e6aee7b29aa64abaa110970071b6f&=&format=webp)
-![Tampilan Antarmuka Utama Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420139930779658/Screenshot_379.png?ex=687a61c7&is=68791047&hm=6c9ce6da5f07610b0870548a23fbc7bdebce0dd60fc362af0083fce173d33563&=&format=webp)
-![Tampilan Antarmuka Utama Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420139520000041/Screenshot_380.png?ex=687a61c6&is=68791046&hm=a113ddcc40242ea9db5e3d71aab83fd79a00ee863075f56086d8ac7b0d2bdc26&=&format=webp)
+(https://media.discordapp.net/attachments/1395420030589730939/1395420139930779658/Screenshot_379.png?ex=687a61c7&is=68791047&hm=6c9ce6da5f07610b0870548a23fbc7bdebce0dd60fc362af0083fce173d33563&=&format=webp)
+(https://media.discordapp.net/attachments/1395420030589730939/1395420139520000041/Screenshot_380.png?ex=687a61c6&is=68791046&hm=a113ddcc40242ea9db5e3d71aab83fd79a00ee863075f56086d8ac7b0d2bdc26&=&format=webp)
 
 ## 🎯 Tujuan Aplikasi
 
