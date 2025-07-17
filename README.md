@@ -84,10 +84,10 @@ Untuk menjalankan aplikasi ini, Anda perlu menginstal Python dan beberapa pustak
 
 Anda bisa mendapatkan kode sumber aplikasi ini dengan mengkloning repositori GitHub:
 
-\`\`\`bash
+```bash
 git clone https://github.com/faizyoshio/System-Antrian-Bank-Sederhana.git
 cd System-Antrian-Bank-Sederhana
-\`\`\`
+```
 
 ### 📦 Instalasi Dependensi
 
@@ -99,15 +99,15 @@ Setelah mengkloning repositori dan masuk ke direktori proyek, ikuti langkah-lang
 2.  **Verifikasi Instalasi Python dan pip**:
     Buka Command Prompt (CMD) atau Terminal (bukan Bash) dan jalankan perintah berikut untuk memastikan Python dan pip (manajer paket Python) terinstal dengan benar:
     
-    \`\`\`cmd
+    ```cmd
     python --version
     pip --version
-    \`\`\`
+    ```
 3.  **Instal Pustaka yang Diperlukan**:
     Dari direktori proyek Anda (`System-Antrian-Bank-Sederhana`), buka Command Prompt (CMD) atau Terminal dan jalankan perintah berikut untuk menginstal semua dependensi:
-    \`\`\`cmd
+    ```cmd
     pip install -r requirements.txt
-    \`\`\`
+    ```
     Perintah ini akan menginstal `pyttsx3` dan pustaka lain yang mungkin diperlukan.
 
 ### ▶️ Menjalankan Aplikasi
@@ -119,11 +119,11 @@ Setelah semua dependensi terinstal, Anda dapat menjalankan aplikasi langsung dar
 2.  Navigasikan ke direktori proyek Anda (`System-Antrian-Bank-Sederhana`) menggunakan perintah `cd`.
 3.  Jalankan aplikasi dengan perintah:
     ```cmd
-    python queue_system.py
+    python Bank_System_Queue.py
     ```
 
 **Dengan Mengklik Dua Kali File:**
-Jika Python terinstal dengan benar dan file `.py` sudah terasosiasi dengan interpreter Python, Anda juga bisa menjalankan aplikasi dengan langsung mengklik dua kali file `queue_system.py` di File Explorer Anda.
+Jika Python terinstal dengan benar dan file `.py` sudah terasosiasi dengan interpreter Python, Anda juga bisa menjalankan aplikasi dengan langsung mengklik dua kali file `Bank_System_Queue.py` di File Explorer Anda.
 
 ### ⚙️ Membuat Aplikasi Executable (.exe)
 
