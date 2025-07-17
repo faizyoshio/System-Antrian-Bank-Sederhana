@@ -118,9 +118,9 @@ Setelah semua dependensi terinstal, Anda dapat menjalankan aplikasi langsung dar
 1.  Buka Command Prompt (CMD) atau Terminal.
 2.  Navigasikan ke direktori proyek Anda (`System-Antrian-Bank-Sederhana`) menggunakan perintah `cd`.
 3.  Jalankan aplikasi dengan perintah:
-    \`\`\`cmd
+    ```cmd
     python queue_system.py
-    \`\`\`
+    ```
 
 **Dengan Mengklik Dua Kali File:**
 Jika Python terinstal dengan benar dan file `.py` sudah terasosiasi dengan interpreter Python, Anda juga bisa menjalankan aplikasi dengan langsung mengklik dua kali file `queue_system.py` di File Explorer Anda.
@@ -131,15 +131,15 @@ Anda dapat mengubah skrip Python ini menjadi file `.exe` yang dapat dijalankan d
 
 1.  **Instal PyInstaller**:
     Jika Anda belum menginstalnya, buka Command Prompt (CMD) atau Terminal dan instal PyInstaller menggunakan pip:
-    \`\`\`cmd
+    ```cmd
     pip install pyinstaller
-    \`\`\`
+    ```
 
 2.  **Buat File Executable**:
     Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal. Kemudian, jalankan perintah PyInstaller berikut:
-    \`\`\`cmd
+    ```cmd
     pyinstaller --onefile --windowed queue_system.py
-    \`\`\`
+    ```
     *   `--onefile`: Mengemas semua yang diperlukan ke dalam satu file `.exe`.
     *   `--windowed` (atau `-w`): Mencegah jendela konsol hitam muncul saat aplikasi GUI dijalankan.
 
