@@ -41,11 +41,23 @@ class VoiceNotifier:
           self.engine.setProperty('volume', 0.9)
           
           voices = self.engine.getProperty('voices')
+          indonesian_voice_found = False
           if voices:
+              # Prioritaskan suara Bahasa Indonesia
               for voice in voices:
-                  if 'female' in voice.name.lower() or 'zira' in voice.name.lower():
+                  if 'indonesian' in voice.name.lower() or 'id' in voice.id.lower():
                       self.engine.setProperty('voice', voice.id)
+                      indonesian_voice_found = True
+                      print(f"Menggunakan suara Bahasa Indonesia: {voice.name}")
                       break
+              
+              # Jika tidak ada suara Bahasa Indonesia, coba suara wanita umum
+              if not indonesian_voice_found:
+                  for voice in voices:
+                      if 'female' in voice.name.lower() or 'zira' in voice.name.lower():
+                          self.engine.setProperty('voice', voice.id)
+                          print(f"Menggunakan suara wanita umum: {voice.name}")
+                          break
       except Exception as e:
           print(f"Voice system initialization failed: {e}")
           self.engine = None
@@ -65,6 +77,22 @@ class VoiceNotifier:
                   local_engine = pyttsx3.init()
                   local_engine.setProperty('rate', 140)
                   local_engine.setProperty('volume', 0.9)
+                  
+                  # Pastikan local_engine juga menggunakan suara yang sama
+                  voices = local_engine.getProperty('voices')
+                  indonesian_voice_set = False
+                  if voices:
+                      for voice in voices:
+                          if 'indonesian' in voice.name.lower() or 'id' in voice.id.lower():
+                              local_engine.setProperty('voice', voice.id)
+                              indonesian_voice_set = True
+                              break
+                      if not indonesian_voice_set:
+                          for voice in voices:
+                              if 'female' in voice.name.lower() or 'zira' in voice.name.lower():
+                                  local_engine.setProperty('voice', voice.id)
+                                  break
+
                   local_engine.say(message)
                   local_engine.runAndWait()
                   local_engine.stop()
@@ -107,7 +135,7 @@ class BankQueueSystem:
       self.start_time_update()
       
       self.voice_notifier.announce("Sistem Antrian Bank telah aktif")
-      self.add_activity_log("INFO", "Sistem Antrian Bank dimulai")
+
   
   def setup_ui(self):
       self.root.grid_rowconfigure(0, weight=0)
@@ -398,7 +426,7 @@ class BankQueueSystem:
       if self.meja1_current.startswith(prefix):
           active_numbers.add(self.meja1_current)
       if self.meja2_current.startswith(prefix):
-          active_numbers.add(self.meja2_current)
+          active_numbers.add(self.me2_current)
       return active_numbers
 
   def _find_next_unique_queue_number(self, queue_type: str) -> Optional[str]:
@@ -605,7 +633,7 @@ class BankQueueSystem:
   def exit_application(self):
       if messagebox.askyesno("Konfirmasi", "Apakah Anda yakin ingin keluar dari sistem?"):
           self.add_activity_log("INFO", "Sistem Antrian Bank dimatikan")
-          self.root.after(7000, self.root.quit)
+          self.root.after(1000, self.root.quit)
   
   def add_activity_log(self, action_type: str, details: str, ticket_number: Optional[str] = None):
       timestamp = datetime.now()
@@ -667,9 +695,9 @@ def main():
   
   def on_closing():
       if messagebox.askyesno("Konfirmasi", "Apakah Anda yakin ingin keluar?"):
-          app.voice_notifier.announce("Sistem ditutup. Terima kasih.")
-          app.add_activity_log("INFO", "Sistem Antrian Bank dimatikan")
-          root.after(1500, root.destroy)
+          app.voice_notifier.announce("Sistem Antrian Bank dimatikan.")
+          app.add_activity_log("INFO", "Sistem Antrian Bank dimatikan.")
+          root.after(1000, root.destroy)
   
   root.protocol("WM_DELETE_WINDOW", on_closing)
   
