@@ -87,7 +87,7 @@ Ikuti langkah-langkah di bawah ini untuk menginstal Python dan semua pustaka yan
     ```pip --version```
 3.  **Instal Pustaka yang Diperlukan**:
     Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal (tempat file `queue_system.py` dan `requirements.txt` berada), lalu jalankan perintah berikut untuk menginstal semua dependensi:
-    ```pip install -r scripts/requirements.txt```
+    ```pip install -r requirements.txt```
     Perintah ini akan menginstal `pyttsx3` dan pustaka lain yang mungkin diperlukan.
 
 ### ⚙️ Membuat Aplikasi Executable (.exe)
