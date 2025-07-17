@@ -8,15 +8,15 @@ Berikut adalah beberapa tangkapan layar yang menunjukkan antarmuka pengguna apli
 
 ### Layar Utama
 Menampilkan status meja pelayanan saat ini, nomor antrian selanjutnya, daftar antrian yang menunggu, dan log aktivitas.
-![Layar Utama Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395474433191448657/Screenshot_391.png?ex=687a9457&is=687942d7&hm=89035cda79055536dc829c2866b0265dd9f0d5e4841119ee565154f1a162f736&=&format=webp2)
+![Layar Utama Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395474433191448657/Screenshot_391.png?ex=687a9457&is=687942d7&hm=89035cda79055536dc829c2866b0265dd9f0d5e4841119ee565154f1a162f736&=&format=webp)
 
 ### Tambah Antrian Bisnis
 Dialog untuk menambahkan pelanggan ke antrian bisnis, termasuk nama pelanggan dan jenis layanan.
-![Dialog Tambah Antrian Bisnis](https://media.discordapp.net/attachments/1395420030589730939/1395474432859836648/Screenshot_392.png?ex=687a9457&is=687942d7&hm=808dbb42aaa3118437c40425a0279834b9f43d3867705a5acd675c8867c6da25&=&format=webp3)
+![Dialog Tambah Antrian Bisnis](https://media.discordapp.net/attachments/1395420030589730939/1395474432859836648/Screenshot_392.png?ex=687a9457&is=687942d7&hm=808dbb42aaa3118437c40425a0279834b9f43d3867705a5acd675c8867c6da25&=&format=webp)
 
 ### Tambah Antrian Personal
 Dialog untuk menambahkan pelanggan ke antrian personal, termasuk nama pelanggan dan jenis layanan.
-![Dialog Tambah Antrian Personal](https://media.discordapp.net/attachments/1395420030589730939/1395474432524419222/Screenshot_393.png?ex=687a9457&is=687942d7&hm=9197a795109a653c30b504426f9953be5228a2d80b3cb7ae5008db086e028a32&=&format=webp4.)
+![Dialog Tambah Antrian Personal](https://media.discordapp.net/attachments/1395420030589730939/1395474432524419222/Screenshot_393.png?ex=687a9457&is=687942d7&hm=9197a795109a653c30b504426f9953be5228a2d80b3cb7ae5008db086e028a32&=&format=webp)
 
 ### Panggilan Meja
 Pesan konfirmasi yang muncul setelah memanggil pelanggan ke meja, menampilkan detail pelanggan.
