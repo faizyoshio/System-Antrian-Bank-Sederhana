@@ -1,0 +1,2 @@
+pyttsx3==2.90
+openpyxl==3.1.2
