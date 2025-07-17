@@ -82,16 +82,12 @@ Ikuti langkah-langkah di bawah ini untuk menginstal Python dan semua pustaka yan
 
 2.  **Verifikasi Instalasi Python dan pip**:
     Buka Command Prompt (CMD) atau Terminal dan jalankan perintah berikut untuk memastikan Python dan pip (manajer paket Python) terinstal dengan benar:
-    \`\`\`bash
-    python --version
-    pip --version
-    \`\`\`
-
+    
+    ```python --version```
+    ```pip --version```
 3.  **Instal Pustaka yang Diperlukan**:
     Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal (tempat file `queue_system.py` dan `requirements.txt` berada), lalu jalankan perintah berikut untuk menginstal semua dependensi:
-    \`\`\`bash
-    pip install -r scripts/requirements.txt
-    \`\`\`
+    ```pip install -r scripts/requirements.txt```
     Perintah ini akan menginstal `pyttsx3` dan pustaka lain yang mungkin diperlukan.
 
 ### ⚙️ Membuat Aplikasi Executable (.exe)
@@ -100,15 +96,11 @@ Anda dapat mengubah skrip Python ini menjadi file `.exe` yang dapat dijalankan d
 
 1.  **Instal PyInstaller**:
     Jika Anda belum menginstalnya, instal PyInstaller menggunakan pip:
-    \`\`\`bash
-    pip install pyinstaller
-    \`\`\`
+    ```pip install pyinstaller```
 
 2.  **Buat File Executable**:
     Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal. Kemudian, jalankan perintah PyInstaller berikut:
-    \`\`\`bash
-    pyinstaller --onefile --windowed scripts/queue_system.py
-    \`\`\`
+    ```pyinstaller --onefile --windowed queue_system.py```
     *   `--onefile`: Mengemas semua yang diperlukan ke dalam satu file `.exe`.
     *   `--windowed` (atau `-w`): Mencegah jendela konsol hitam muncul saat aplikasi GUI dijalankan.
 
