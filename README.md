@@ -2,11 +2,25 @@
 
 Aplikasi ini adalah sistem manajemen antrian bank berbasis desktop yang dirancang untuk mengelola alur pelanggan dengan efisien, menggunakan prioritas antrian dan pengumuman suara.
 
-## 🖼️ Tampilan Aplikasi
+## 🖼️ Tampilan Antarmuka Aplikasi
 
-Berikut adalah tampilan antarmuka utama aplikasi:
+Berikut adalah beberapa tangkapan layar yang menunjukkan antarmuka pengguna aplikasi:
 
-![Tampilan Antarmuka Utama Sistem Antrian Bank](/public/images/app-screenshot.png)
+### Layar Utama
+Menampilkan status meja pelayanan saat ini, nomor antrian selanjutnya, daftar antrian yang menunggu, dan log aktivitas.
+![Layar Utama Sistem Antrian Bank](/public/images/main-screen.png)
+
+### Tambah Antrian Bisnis
+Dialog untuk menambahkan pelanggan ke antrian bisnis, termasuk nama pelanggan dan jenis layanan.
+![Dialog Tambah Antrian Bisnis](/public/images/add-business-queue.png)
+
+### Tambah Antrian Personal
+Dialog untuk menambahkan pelanggan ke antrian personal, termasuk nama pelanggan dan jenis layanan.
+![Dialog Tambah Antrian Personal](/public/images/add-personal-queue.png)
+
+### Panggilan Meja
+Pesan konfirmasi yang muncul setelah memanggil pelanggan ke meja, menampilkan detail pelanggan.
+![Dialog Panggilan Meja](/public/images/call-desk-dialog.png)
 
 ## 🎯 Tujuan Aplikasi
 
@@ -17,40 +31,33 @@ Tujuan utama dari aplikasi ini adalah untuk:
 4.  **Tampilan Real-time**: Menampilkan status antrian dan meja layanan secara langsung.
 5.  **Kemudahan Penggunaan**: Menyediakan antarmuka yang intuitif untuk petugas bank.
 
-## 💡 Fungsionalitas Utama
+## ✨ Fitur Utama Berdasarkan Spesifikasi
 
-Aplikasi ini memiliki fungsionalitas inti sebagai berikut:
+Aplikasi ini dirancang untuk memenuhi persyaratan spesifik berikut:
+
+*   **Antrian Terpisah dengan Prioritas**: Nomor antrian untuk tabungan bisnis (berawalan 'B') dan personal (berawalan 'P') memiliki urutan numerik yang terpisah dan independen (masing-masing 1-100, berulang). Pelanggan bisnis memiliki prioritas lebih tinggi daripada pelanggan personal. Sistem menggunakan `heap` untuk memastikan prioritas ini.
+*   **Dua Meja Pelayanan**: Aplikasi mendukung dua meja pelayanan, yaitu `Meja 1` dan `Meja 2`, yang dapat memanggil pelanggan secara independen.
+*   **Pengumuman Suara Otomatis**: Aplikasi wajib menggunakan suara untuk pemanggilan antrian. Sistem ini menggunakan pustaka `pyttsx3` untuk mengumumkan nomor antrian yang dipanggil ke meja tertentu dalam Bahasa Indonesia.
+*   **Tampilan Nomor Antrian Meja**: Nomor antrian pelanggan yang sedang dilayani di `Meja 1` dan `Meja 2` ditampilkan secara jelas di antarmuka utama.
+
+## 💡 Fungsionalitas Tambahan
+
+Selain fitur utama di atas, aplikasi ini juga memiliki fungsionalitas tambahan:
 
 1.  **Penambahan Antrian**:
     *   Petugas dapat menambahkan pelanggan baru ke antrian.
     *   Tersedia dua jenis antrian: **Bisnis** dan **Personal**.
     *   Setiap pelanggan akan mendapatkan nomor antrian unik (misalnya, B001, P002).
-    *   Nomor antrian berurutan dari 001 hingga 100, dan akan mengulang kembali dari 001 setelah mencapai 100. Sistem memastikan tidak ada nomor antrian ganda yang aktif.
     *   Setelah ditambahkan, sistem akan memberikan pengumuman suara "Selamat datang. Nomor antrian Anda adalah [Nomor Antrian]".
+    *   Pilihan Jenis Layanan: Saat menambahkan pelanggan, petugas dapat memilih jenis layanan yang relevan dari daftar yang telah ditentukan.
 
-2.  **Manajemen Prioritas**:
-    *   Pelanggan **Bisnis** memiliki prioritas lebih tinggi daripada pelanggan **Personal**.
-    *   Sistem menggunakan struktur data `heap` untuk memastikan pelanggan dengan prioritas lebih tinggi dilayani terlebih dahulu. Jika prioritas sama, pelanggan yang datang lebih dulu akan dilayani.
-
-3.  **Panggilan Pelanggan (Meja 1 & Meja 2)**:
-    *   Tersedia dua meja layanan (`Meja 1` dan `Meja 2`).
-    *   Petugas dapat memanggil pelanggan berikutnya dari antrian ke meja yang tersedia.
+2.  **Panggilan Pelanggan**:
     *   Saat pelanggan dipanggil, sistem akan mengumumkan suara: "Nomor antrian [Nomor Antrian], silakan ke meja [Nomor Meja]".
-    *   Nomor antrian yang sedang dilayani di setiap meja akan ditampilkan di layar utama.
 
-4.  **Tampilan Status Real-time**:
-    *   Layar utama menampilkan nomor antrian yang sedang dilayani di `Meja 1` dan `Meja 2`.
-    *   Juga menampilkan "Nomor Selanjutnya" yang akan dipanggil dari antrian.
+3.  **Tampilan Status Real-time**:
+    *   Layar utama menampilkan "Nomor Selanjutnya" yang akan dipanggil dari antrian.
     *   Daftar antrian yang menunggu ditampilkan secara real-time, diurutkan berdasarkan prioritas.
     *   Log aktivitas terbaru ditampilkan untuk memantau operasi sistem.
-
-5.  **Statistik Pelayanan**:
-    *   Aplikasi melacak total pelanggan yang dilayani, jumlah pelanggan bisnis dan personal yang dilayani, serta panjang antrian yang menunggu.
-    *   Statistik ini dapat dilihat melalui menu "Lihat Statistik".
-
-6.  **Pengaturan Suara**:
-    *   Tersedia opsi untuk menguji sistem suara.
-    *   Memberikan informasi dasar tentang status sistem suara.
 
 ## 💻 Teknologi yang Digunakan
 

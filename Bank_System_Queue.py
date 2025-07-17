@@ -443,7 +443,7 @@ class BankQueueSystem:
   def add_customer_dialog(self, queue_type):
       dialog = tk.Toplevel(self.root)
       dialog.title(f"Tambah Antrian {queue_type}")
-      dialog.geometry("450x350")
+      dialog.geometry("450x400") # Increased height to accommodate new field
       dialog.configure(bg='#f0f0f0')
       dialog.transient(self.root)
       dialog.grab_set()
@@ -474,12 +474,46 @@ class BankQueueSystem:
       name_entry.pack(fill=tk.X, pady=(0, 15))
       name_entry.focus()
       
+      # Re-adding Jenis Layanan
+      tk.Label(form_frame, text="Jenis Layanan:", font=('Arial', 12, 'bold'), bg='#f0f0f0').pack(anchor='w', pady=(0, 5))
+      service_var = tk.StringVar()
+      service_combo = ttk.Combobox(
+          form_frame, 
+          textvariable=service_var,
+          font=('Arial', 12),
+          width=33,
+          state="readonly"
+      )
+      
+      if queue_type == "Bisnis":
+          services = [
+              "Pembukaan Rekening Bisnis",
+              "Kredit Usaha Mikro",
+              "Kredit Usaha Kecil",
+              "Layanan Korporat",
+              "Konsultasi Bisnis",
+              "Transfer Bisnis"
+          ]
+      else:
+          services = [
+              "Pembukaan Rekening Personal",
+              "Setor Tunai",
+              "Tarik Tunai",
+              "Kartu Kredit",
+              "Konsultasi Investasi",
+              "Transfer Personal"
+          ]
+      
+      service_combo['values'] = services
+      service_combo.pack(fill=tk.X, pady=(0, 20))
+      service_combo.current(0) # Set default selected value
       
       button_frame = tk.Frame(form_frame, bg='#f0f0f0')
       button_frame.pack(fill=tk.X, pady=(10, 0))
       
       def add_customer():
           name = name_entry.get().strip()
+          service = service_var.get() # Get selected service
           
           if not name:
               messagebox.showerror("Error", "Nama pelanggan tidak boleh kosong!")
@@ -496,7 +530,7 @@ class BankQueueSystem:
 
           priority = 1 if queue_type == "Bisnis" else 2
           
-          queue_item = QueueItem(queue_number, name, "Tidak Ada", priority)
+          queue_item = QueueItem(queue_number, name, service, priority) # Pass service
           heapq.heappush(self.queue_heap, queue_item)
           
           self.add_activity_log("ENTRY", f"Ditambahkan: {queue_number} ({queue_type}) - {name}", queue_number)
@@ -505,7 +539,7 @@ class BankQueueSystem:
           
           self.update_display()
           
-          messagebox.showinfo("Berhasil", f"Nomor antrian {queue_number} telah ditambahkan!\n\nNama: {name}\nJenis: {queue_type}")
+          messagebox.showinfo("Berhasil", f"Nomor antrian {queue_number} telah ditambahkan!\n\nNama: {name}\nLayanan: {service}\nJenis: {queue_type}") # Display service
           dialog.destroy()
       
       tk.Button(
@@ -575,9 +609,8 @@ class BankQueueSystem:
   
   def exit_application(self):
       if messagebox.askyesno("Konfirmasi", "Apakah Anda yakin ingin keluar dari sistem?"):
-          self.voice_notifier.announce("Sistem antrian bank akan ditutup. Terima kasih.")
           self.add_activity_log("INFO", "Sistem Antrian Bank dimatikan")
-          self.root.after(2000, self.root.quit)
+          self.root.after(7000, self.root.quit)
   
   def add_activity_log(self, action_type: str, details: str, ticket_number: Optional[str] = None):
       timestamp = datetime.now()
