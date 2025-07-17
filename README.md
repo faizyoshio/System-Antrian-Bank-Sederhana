@@ -6,13 +6,7 @@ Aplikasi ini adalah sistem manajemen antrian bank berbasis desktop yang dirancan
 
 Berikut adalah tampilan antarmuka utama aplikasi:
 
-![Tampilan Input Bisnis Pada Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420140388094105/Screenshot_378.png?ex=687a61c7&is=68791047&hm=26394b50e3556ea5657e39e7a3da36d78f2e6aee7b29aa64abaa110970071b6f&=&format=webp)
-
-
-![Tampilan Input Personal Sistem Pada Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420139930779658/Screenshot_379.png?ex=687a61c7&is=68791047&hm=6c9ce6da5f07610b0870548a23fbc7bdebce0dd60fc362af0083fce173d33563&=&format=webp)
-
-
-![Tampilan Panggilan Untuk Ke-Meja Pada Sistem Antrian Bank](https://media.discordapp.net/attachments/1395420030589730939/1395420139520000041/Screenshot_380.png?ex=687a61c6&is=68791046&hm=a113ddcc40242ea9db5e3d71aab83fd79a00ee863075f56086d8ac7b0d2bdc26&=&format=webp)
+![Tampilan Antarmuka Utama Sistem Antrian Bank](/public/images/app-screenshot.png)
 
 ## 🎯 Tujuan Aplikasi
 
@@ -74,6 +68,56 @@ Aplikasi ini dirancang untuk berjalan dalam mode layar penuh secara otomatis saa
 
 *   **Manfaat**: Memberikan pengalaman pengguna yang imersif dan memastikan tampilan yang konsisten di berbagai ukuran monitor, ideal untuk display publik di area tunggu bank.
 *   **Keluar dari Layar Penuh**: Untuk keluar dari aplikasi (dan mode layar penuh), Anda dapat menggunakan tombol "Keluar" yang tersedia di menu aplikasi.
+
+## 🚀 Panduan Instalasi dan Penggunaan
+
+Untuk menjalankan aplikasi ini, Anda perlu menginstal Python dan beberapa pustaka tambahan. Anda juga dapat mengemas aplikasi ini menjadi file executable (`.exe`) untuk distribusi yang lebih mudah.
+
+### 📦 Instalasi Dependensi
+
+Ikuti langkah-langkah di bawah ini untuk menginstal Python dan semua pustaka yang diperlukan:
+
+1.  **Instal Python**:
+    Jika Anda belum memiliki Python, unduh dan instal versi terbaru dari situs resmi Python: [python.org](https://www.python.org/downloads/). Pastikan untuk mencentang opsi "Add Python to PATH" selama instalasi.
+
+2.  **Verifikasi Instalasi Python dan pip**:
+    Buka Command Prompt (CMD) atau Terminal dan jalankan perintah berikut untuk memastikan Python dan pip (manajer paket Python) terinstal dengan benar:
+    \`\`\`bash
+    python --version
+    pip --version
+    \`\`\`
+
+3.  **Instal Pustaka yang Diperlukan**:
+    Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal (tempat file `queue_system.py` dan `requirements.txt` berada), lalu jalankan perintah berikut untuk menginstal semua dependensi:
+    \`\`\`bash
+    pip install -r scripts/requirements.txt
+    \`\`\`
+    Perintah ini akan menginstal `pyttsx3` dan pustaka lain yang mungkin diperlukan.
+
+### ⚙️ Membuat Aplikasi Executable (.exe)
+
+Anda dapat mengubah skrip Python ini menjadi file `.exe` yang dapat dijalankan di Windows tanpa perlu menginstal Python atau dependensi secara terpisah. Kami akan menggunakan `PyInstaller` untuk ini.
+
+1.  **Instal PyInstaller**:
+    Jika Anda belum menginstalnya, instal PyInstaller menggunakan pip:
+    \`\`\`bash
+    pip install pyinstaller
+    \`\`\`
+
+2.  **Buat File Executable**:
+    Navigasikan ke direktori proyek Anda di Command Prompt atau Terminal. Kemudian, jalankan perintah PyInstaller berikut:
+    \`\`\`bash
+    pyinstaller --onefile --windowed scripts/queue_system.py
+    \`\`\`
+    *   `--onefile`: Mengemas semua yang diperlukan ke dalam satu file `.exe`.
+    *   `--windowed` (atau `-w`): Mencegah jendela konsol hitam muncul saat aplikasi GUI dijalankan.
+
+3.  **Temukan Aplikasi Anda**:
+    Setelah proses selesai, Anda akan menemukan file `.exe` di dalam folder `dist` yang dibuat di direktori proyek Anda (misalnya, `dist/queue_system.exe`).
+
+**Catatan Penting**:
+*   Beberapa perangkat lunak antivirus mungkin menandai file `.exe` yang dibuat oleh PyInstaller sebagai potensi ancaman. Ini adalah *false positive* yang umum karena cara PyInstaller mengemas aplikasi.
+*   Proses pembuatan `.exe` mungkin membutuhkan waktu beberapa menit.
 
 ## 🤝 Interaksi Pengguna
 
