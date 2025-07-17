@@ -144,7 +144,7 @@ Anda dapat mengubah skrip Python ini menjadi file `.exe` yang dapat dijalankan d
     *   `--windowed` (atau `-w`): Mencegah jendela konsol hitam muncul saat aplikasi GUI dijalankan.
 
 3.  **Temukan Aplikasi Anda**:
-    Setelah proses selesai, Anda akan menemukan file `.exe` di dalam folder `dist` yang dibuat di direktori proyek Anda (misalnya, `dist/queue_system.exe`).
+    Setelah proses selesai, Anda akan menemukan file `.exe` di dalam folder `dist` yang dibuat di direktori proyek Anda (misalnya, `dist/Bank_System_Queue.exe`).
 
 **Catatan Penting**:
 *   Beberapa perangkat lunak antivirus mungkin menandai file `.exe` yang dibuat oleh PyInstaller sebagai potensi ancaman. Ini adalah *false positive* yang umum karena cara PyInstaller mengemas aplikasi.
