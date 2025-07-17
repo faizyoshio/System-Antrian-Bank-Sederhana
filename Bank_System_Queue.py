@@ -86,7 +86,6 @@ class BankQueueSystem:
       self.root.configure(bg='#f0f0f0')
       
       self.queue_heap = []
-      # Menggunakan counter terpisah untuk bisnis dan personal
       self.next_business_number_counter = 1
       self.next_personal_number_counter = 1
       self.max_queue_number = 100
@@ -395,7 +394,6 @@ class BankQueueSystem:
       activity_scrollbar.config(command=self.activity_listbox.yview)
   
   def _get_active_queue_numbers_for_prefix(self, prefix: str) -> set[str]:
-      """Mengembalikan set nomor antrian lengkap (dengan prefix) yang sedang aktif untuk prefix tertentu."""
       active_numbers = {item.queue_number for item in self.queue_heap if item.queue_number.startswith(prefix)}
       if self.meja1_current.startswith(prefix):
           active_numbers.add(self.meja1_current)
@@ -404,7 +402,6 @@ class BankQueueSystem:
       return active_numbers
 
   def _find_next_unique_queue_number(self, queue_type: str) -> Optional[str]:
-      """Mencari nomor antrian unik berikutnya yang tersedia untuk jenis antrian tertentu (1-100, berulang)."""
       prefix = "B" if queue_type == "Bisnis" else "P"
       
       active_numbers_with_prefix = self._get_active_queue_numbers_for_prefix(prefix)
@@ -412,7 +409,7 @@ class BankQueueSystem:
       if queue_type == "Bisnis":
           current_counter = self.next_business_number_counter
           set_next_counter = lambda val: setattr(self, 'next_business_number_counter', val)
-      else: # Personal
+      else:
           current_counter = self.next_personal_number_counter
           set_next_counter = lambda val: setattr(self, 'next_personal_number_counter', val)
 
@@ -422,17 +419,16 @@ class BankQueueSystem:
           candidate_numerical_part = f"{current_counter:03d}"
           full_candidate_number = f"{prefix}{candidate_numerical_part}"
           
-          # Increment the counter for the next iteration, cycling from 1 to max_queue_number
           current_counter = (current_counter % self.max_queue_number) + 1
           set_next_counter(current_counter)
 
           if full_candidate_number not in active_numbers_with_prefix:
               return full_candidate_number
           
-          if current_counter == start_counter: # Cycled through all numbers and found no available slot
+          if current_counter == start_counter:
               break
       
-      return None # No available number found
+      return None
 
   def add_business_queue(self):
       self.add_customer_dialog("Bisnis")
@@ -443,7 +439,7 @@ class BankQueueSystem:
   def add_customer_dialog(self, queue_type):
       dialog = tk.Toplevel(self.root)
       dialog.title(f"Tambah Antrian {queue_type}")
-      dialog.geometry("450x400") # Increased height to accommodate new field
+      dialog.geometry("450x400")
       dialog.configure(bg='#f0f0f0')
       dialog.transient(self.root)
       dialog.grab_set()
@@ -474,7 +470,6 @@ class BankQueueSystem:
       name_entry.pack(fill=tk.X, pady=(0, 15))
       name_entry.focus()
       
-      # Re-adding Jenis Layanan
       tk.Label(form_frame, text="Jenis Layanan:", font=('Arial', 12, 'bold'), bg='#f0f0f0').pack(anchor='w', pady=(0, 5))
       service_var = tk.StringVar()
       service_combo = ttk.Combobox(
@@ -506,14 +501,14 @@ class BankQueueSystem:
       
       service_combo['values'] = services
       service_combo.pack(fill=tk.X, pady=(0, 20))
-      service_combo.current(0) # Set default selected value
+      service_combo.current(0)
       
       button_frame = tk.Frame(form_frame, bg='#f0f0f0')
       button_frame.pack(fill=tk.X, pady=(10, 0))
       
       def add_customer():
           name = name_entry.get().strip()
-          service = service_var.get() # Get selected service
+          service = service_var.get()
           
           if not name:
               messagebox.showerror("Error", "Nama pelanggan tidak boleh kosong!")
@@ -530,7 +525,7 @@ class BankQueueSystem:
 
           priority = 1 if queue_type == "Bisnis" else 2
           
-          queue_item = QueueItem(queue_number, name, service, priority) # Pass service
+          queue_item = QueueItem(queue_number, name, service, priority)
           heapq.heappush(self.queue_heap, queue_item)
           
           self.add_activity_log("ENTRY", f"Ditambahkan: {queue_number} ({queue_type}) - {name}", queue_number)
@@ -539,7 +534,7 @@ class BankQueueSystem:
           
           self.update_display()
           
-          messagebox.showinfo("Berhasil", f"Nomor antrian {queue_number} telah ditambahkan!\n\nNama: {name}\nLayanan: {service}\nJenis: {queue_type}") # Display service
+          messagebox.showinfo("Berhasil", f"Nomor antrian {queue_number} telah ditambahkan!\n\nNama: {name}\nLayanan: {service}\nJenis: {queue_type}")
           dialog.destroy()
       
       tk.Button(
@@ -666,11 +661,7 @@ class BankQueueSystem:
 def main():
   root = tk.Tk()
   
-  # Set the window to fullscreen
   root.attributes('-fullscreen', True)
-  
-  # Optional: Bind the Escape key to exit fullscreen (and the app)
-  # root.bind('<Escape>', lambda event: root.attributes('-fullscreen', False) or root.quit())
   
   app = BankQueueSystem(root)
   
